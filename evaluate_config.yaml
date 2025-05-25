@@ -1,4 +1,4 @@
-default_output_dir: "surface_results"
+default_output_dir: "eval_results"
 metrics_format: ["csv", "json"]
 save_side_by_side: False
 
