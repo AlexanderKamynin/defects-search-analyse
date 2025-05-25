@@ -1,0 +1,36 @@
+default_output_dir: "results"
+
+instruments:
+  - name: "CrackDenseLinkNet"
+    description: "Modified Encoder-Decoder architecture"
+    script: "C:/etu/diploma/instruments/denselinknet/run_inference.py"
+    output_dir: "results/crackdenselinknet/"
+    args:
+      model: "Linknet" 
+      backbone: "densenet169"
+      checkpoint: "C:/etu/diploma/instruments/denselinknet/best_model_iou.pth"
+
+  - name: "Crack Segmentation with Super-Resolution (CSSR)"
+    script: "C:/etu/diploma/instruments/cssr/test.py"
+    output_dir: "results/cssr/"
+    args:
+      config_file: "C:/etu/diploma/instruments/cssr/config.yaml"
+      trained_model: "weights/iteration_100000.pth"
+      batch_size: 1
+      num_workers: 4
+      test_aiu: False
+      device: "auto"
+
+  - name: "SCCDNet-plus-plus"
+    script: C:/etu/diploma/instruments/segdec-net/test.py
+    output_dir: "results/sccdnet/"
+    args:
+      model_path: "best_dec_dict.pth"
+      device: "auto"
+
+  - name: "Hierarchical Multi-Scale Attention (HMA)"
+    script: C:/etu/diploma/instruments/multiscale/inference.py
+    output_dir: "results/processed_hma/"
+    args:
+
+
